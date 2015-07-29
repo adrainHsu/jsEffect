@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .topAd{overflow:hidden;position:relative;background: red;width: 100%;display: none;}
+        .topAdCon{height: 300px;background: red;width: 100%;}
+        .box{height: 2800px;}
+
+    </style>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        window.onload=function(){
+            var oAd=$('topAd');
+            var oAdcon=$('topAdCon');
+            var h=0;//初始高度为0
+
+            var maxH=oAdcon.height;//div取不到高度值，但img能取得到
+            function adDown(){
+                oAd.style.height=h+'px';
+                oAd.style.display='block';
+                if(h<maxH){
+                    h+=5;
+                    setTimeout(adDown,1);
+                }else{
+                    setTimeout(adUp,2000);
+                }
+            }
+            function adUp(){
+                if(h>0){
+                    h-=5;
+                    oAd.style.height=h+'px';
+                    setTimeout(adUp,1);
+                }
+            }
+            setTimeout(adDown,2000);
+        }
+    </script>
+</head>
+<body>
+<div id="topAd" class="topAd">
+    <img id="topAdCon" height="300" class="topAdCon" />
+</div>
+<div id="box" class="box"></div>
+</body>
+</html>
