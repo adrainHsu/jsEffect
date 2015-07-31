@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>豆瓣音乐运动</title>
+    <style>
+    .dbmove{background: green;
+        width: 0px;height: 33px;float: left;
+    }
+    .dbhide{
+        width: 23px;height: 33px;background: red;float: left;
+    }
+    .dbshow{
+        width: 33px;height: 33px;background: blue;float: left;
+    }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.dbhide').hide();
+            $('.dbshow').on('click',function(){
+                $(this).hide();
+                $('.dbmove').animate({
+                    'width':'150px'
+                },500,function(){
+                    $('.dbhide').show();
+                });
+            });
+            $('.dbhide').on('click',function(){
+                $(this).hide();
+                $('.dbmove').animate({
+                    'width':'0px'
+                },500,function(){
+                    $('.dbshow').show();
+                });
+            });
+        });
+    </script>
 </head>
 <body>
+<div class="dbmove"></div>
+<a href="javascript:void(0)" class="dbhide">&lt;</a>
+<a href="javascript:void(0)" class="dbshow"></a>
 
 </body>
 </html>
