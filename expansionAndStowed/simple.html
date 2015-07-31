@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展开与收起</title>
+    <style>
+        body{margin: 0 auto;padding: 0px;}
+        p{margin: 0;padding: 5px;}
+        #pn{
+            background: #e8e8e8;
+            width: 600px;
+            display: block;
+            margin: 0 auto;
+            font-size: 9pt;
+            height: auto;
+        }
+        .slide{
+            margin: 0 auto;
+            padding: 0px;
+            width: 600px;
+            border-top: solid 4px gray;
+        }
+        .btn-slide{
+            text-decoration: none;
+            padding: 10px 0 0 0;
+            background: gray;
+            width: 120px;
+            height: 30px;
+            margin: 0 auto;
+            text-align: center;
+            display: block;
+            color: white;
+        }
+    </style>
+    <script type="text/javascript">
+            function $(id){
+                return document.getElementById(id);
+            }
+            //展示函数
+            function showdiv(){
+                $('hpn').style.display="block";
+                $('strHref').innerHTML="收起-";
+                $('strHref').href="javascript:hidediv();"
+            }
+            //隐藏函数
+            function hidediv(){
+                $('hpn').style.display="none";
+                $('strHref').innerText="更多选项+";
+                $('strHref').href="javascript:showdiv();"
+
+            }
+    </script>
+</head>
+<body>
+<div id="pn">
+    <p>手机-商品筛选</p>
+    <p>网络：移动4G3G</p>
+    <div id="hpn" style="display: none;">
+        <p>价格：5000以上</p>
+        <p>特点：我想是我海</p>
+    </div>
+</div>
+<p class="slide">
+    <a href="javascript:showdiv();" id="strHref" class="btn-slide">更多选项+</a>
+</p>
+</body>
+</html>
